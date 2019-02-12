@@ -1,7 +1,3 @@
-export class OlaMundo{
-    public run(){
-        console.log("Hello MUNDO!!");
-    }
-}
+import {Questions} from './perguntas';
 
-new OlaMundo().run();
+new Questions().formulario();

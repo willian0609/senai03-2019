@@ -9,6 +9,10 @@
   "author": "will",
   "license": "ISC",
   "devDependencies": {
+    "@types/inquirer": "0.0.43",
     "typescript": "^3.3.3"
+  },
+  "dependencies": {
+    "inquirer": "^6.2.2"
   }
 }

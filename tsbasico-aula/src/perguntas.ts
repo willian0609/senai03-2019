@@ -1,0 +1,101 @@
+import {prompt} from 'inquirer';
+
+export class Questions {
+
+    public askName(){
+        prompt(
+                [
+                    {
+                        name: 'name',
+                        type: 'input',
+                        message: 'Qual o seu nome',
+                    }
+                ]
+            ).then(
+                    (answers : any) => {
+                        console.log(`\nOlá ${answers.name}!\n`);
+                    }
+                );
+    }
+
+    public formulario(){
+        prompt(
+                [
+                    {
+                        name: 'name',
+                        type: 'input',
+                        message: 'Qual o seu nome?',
+                    }, 
+                    {
+                        name: 'tel',
+                        type: 'input',
+                        message: 'Qual o seu telefone?',
+                    }, 
+                    {
+                        name: 'tam',
+                        type: 'list',
+                        message: 'Qual tamanho você vai querer?',
+                        choices: ['Pequena', 'Media', 'Grande'],
+                        default: 2,
+                    },
+                    {
+                        name: 'sabor',
+                        type: 'list',
+                        message: 'Qual sabor você deseja?',
+                        choices: ['Frango', 'Calabresa', 'Strogonoff de Carne', 'Strogonoff de Frango', 'Kartofell'],
+                        default: 2,
+                    },
+                    {
+                        name: 'qtdade',
+                        type: 'input',
+                        message: 'Quantas vai querer?',
+                    }, 
+                    {
+                        name: 'entrega',
+                        type: 'list',
+                        message: 'É para entregar ou vem retirar no balcão?',
+                        choices: ['Vou retirar no balcão', 'Preciso que me entreguem!!'],
+                        default: 2,
+                    }, 
+
+
+                ]
+            ).then(
+                    (answers : any) => {
+                        if (answers.entrega === 'Preciso que me entreguem!!') {
+                            prompt(
+                                [
+                                    {
+                                        name: 'city',
+                                        type: 'input',
+                                        message: 'Cidade:'
+                                    },
+                                    {
+                                        name: 'neighborhood',
+                                        type: 'input',
+                                        message: 'Bairro:'
+                                    },
+                                    {
+                                        name: 'street',
+                                        type: 'input',
+                                        message: 'Rua:'
+                                    },
+                                    {
+                                        name: 'number',
+                                        type: 'input',
+                                        message: 'Número:'
+                                    },
+                                    {
+                                        name: 'complement',
+                                        type: 'input',
+                                        message: 'Complemento:'
+                                    }
+                                ]
+                        
+                        }
+                    ),.then(
+                    (answers : any) => {
+                        console.log(`\nOlá ${answers.name}. Você pediu ${answers.qtdade} pizza(s) ${answers.tam} de ${answers.sabor}. Qualquer problema entraremos em contato com você através do telefone fornecido ( ${answers.tel} ). Obrigado pela preferencia! \n`);
+                    }
+    }
+}
